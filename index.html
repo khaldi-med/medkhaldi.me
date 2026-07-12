@@ -1,287 +1,339 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Khaldi - Portfolio</title>
+    <title>Mohamed Khaldi — Full Stack Developer</title>
+    <meta name="description" content="Mohamed Khaldi is a Full Stack Developer and 1337 School student based in Fes, Morocco, building high-performance systems and scalable web applications.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loader-wrapper">
-        <div class="loader"></div>
+
+    <!-- Loader -->
+    <div class="loader-wrapper" id="loaderWrapper">
+        <div class="loader-ring"></div>
+        <span class="loader-text">mk</span>
     </div>
 
+    <!-- Cursor (desktop only) -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">MK Portfolio</a>
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#home" class="nav-brand" aria-label="Home">
+                <span class="brand-bracket">{</span><span class="brand-name">mk</span><span class="brand-bracket">}</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun" id="iconSun"></i>
+                    <i class="fas fa-moon" id="iconMoon"></i>
+                </button>
+                <a href="resume.pdf" download="Mohamed_Khaldi_CV.pdf" class="nav-cta resume-cta">
+                    <i class="fas fa-download"></i> Resume
+                </a>
+                <a href="mailto:khaldimohamed82@gmail.com" class="nav-cta">Let's talk</a>
             </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay">
+        <ul>
+            <li><a href="#about" class="mob-link">About</a></li>
+            <li><a href="#skills" class="mob-link">Skills</a></li>
+            <li><a href="#projects" class="mob-link">Projects</a></li>
+            <li><a href="#contact" class="mob-link">Contact</a></li>
+        </ul>
+        <div class="mob-footer">
+            <a href="resume.pdf" download="Mohamed_Khaldi_CV.pdf" class="mob-cta"><i class="fas fa-download"></i> Download Resume</a>
+            <span class="mob-email">khaldimohamed82@gmail.com</span>
+        </div>
+    </div>
+
+    <!-- ===================== HERO ===================== -->
     <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title animate-text">
-                    Hi, I'm <span class="highlight">Khaldi Mohamed</span>
-                </h1>
-                <p class="hero-subtitle animate-text">Full Stack Web Developer</p>
-                <p class="hero-description animate-text">
-                    I create digital experiences that are functional, beautiful, and user-centered.
-                    Passionate about turning ideas into reality through code.
-                </p>
-                <div class="hero-buttons animate-text">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
+        <div class="hero-bg"><div class="hero-grid-pattern"></div></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Open to new opportunities
             </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <div class="profile-img">
-                        <!-- add photo -->
-                        <img src="https://via.placeholder.com/300x300/4f46e5/ffffff?text=MK" alt="Khaldi Mohamed">
-                    </div>
+
+            <h1 class="hero-title">
+                <span class="line">I build</span>
+                <span class="line accent-line" id="typedLine">high-performance</span>
+                <span class="line">systems &amp; apps.</span>
+            </h1>
+
+            <p class="hero-desc">
+                Full Stack Developer &amp; 42 Network student (1337 School, UM6P) based in Fes, Morocco.
+                I work from low-level C/Unix systems all the way up to scalable web applications.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-fill">
+                    See my work <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="resume.pdf" download="Mohamed_Khaldi_CV.pdf" class="btn btn-outline">
+                    <i class="fas fa-download"></i> Get Resume
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-card-wrap">
+            <div class="hero-card">
+                <div class="hc-avatar">MK</div>
+                <h3 class="hc-name">Mohamed Khaldi</h3>
+                <p class="hc-role">Full Stack Developer · 1337 / 42</p>
+                <div class="hc-tags">
+                    <span>C / Unix</span><span>Node.js</span><span>React</span>
+                    <span>Python</span><span>Docker</span>
+                </div>
+                <div class="hc-stats">
+                    <div><strong>4</strong><span>Projects</span></div>
+                    <div><strong>42</strong><span>Network</span></div>
+                    <div><strong>3</strong><span>Languages</span></div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
+
+        <div class="scroll-hint">
+            <div class="scroll-line-anim"></div>
+            <span>scroll</span>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="section-about">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Get to know me better</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>I'm a passionate developer who loves creating amazing digital experiences</h3>
-                    <p>
-                        With experience in web development, I specialize in creating
-                        modern, responsive websites and web applications. I'm passionate about clean code,
-                        user experience, and staying up-to-date with the latest technologies.
+            <div class="about-grid">
+                <div class="about-left reveal">
+                    <span class="tag">/ about me</span>
+                    <h2 class="heading-lg">Systems thinker,<br><em>web builder.</em></h2>
+
+                    <p class="text-body">
+                        I'm a software engineering student at <strong>1337 School (42 Network / UM6P)</strong>, with a
+                        first-principles approach to building software. I started from self-directed training —
+                        FreeCodeCamp certifications in JavaScript and Responsive Web Design — and pushed deeper
+                        into systems programming, algorithms, and architecture at 1337.
                     </p>
-                    <p>
-                        When I'm not coding, you can find me exploring new technologies.
-                    <div class="about-stats">
-                        <div class="stat" data-count="15">
-                            <h4>0</h4>
-                            <p>Projects Completed</p>
-                        </div>
-                        <div class="stat" data-count="2">
-                            <h4>0</h4>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat" data-count="50">
-                            <h4>0</h4>
-                            <p>Happy Clients</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-skills">
-                    <h4>What I Do</h4>
-                    <div class="services">
-                        <div class="service-item">
-                            <i class="fas fa-code"></i>
-                            <h5>Web Development</h5>
-                            <p>Building responsive and performant web applications</p>
-                        </div>
+                    <p class="text-body">
+                        I specialize in high-performance systems (C/Unix) and scalable web applications
+                        (Node.js/React). I'm a rapid learner with a genuine interest in R&amp;D and open-source ecosystems.
+                    </p>
 
+                    <ul class="detail-list">
+                        <li><i class="fas fa-map-marker-alt"></i> Fes, Morocco</li>
+                        <li><i class="fas fa-graduation-cap"></i> UM6P — 1337 School (42 Network), 2024–2026</li>
+                        <li><i class="fas fa-language"></i> Arabic (native) · French · English (B2)</li>
+                        <li><i class="fas fa-envelope"></i> khaldimohamed82@gmail.com</li>
+                    </ul>
+                </div>
+
+                <div class="about-right reveal">
+                    <div class="svc-card">
+                        <div class="svc-icon"><i class="fas fa-microchip"></i></div>
+                        <div><h4>Systems Programming</h4><p>Low-level C/Unix — process management, memory, shell internals, graphics engines.</p></div>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-icon"><i class="fas fa-layer-group"></i></div>
+                        <div><h4>Full Stack Web</h4><p>RESTful APIs with Node.js/Express, React frontends, MySQL/PostgreSQL databases.</p></div>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-icon"><i class="fas fa-terminal"></i></div>
+                        <div><h4>DevOps &amp; Tooling</h4><p>Docker, Kubernetes, Git workflows, Webpack/Vite builds, Unix shell scripting.</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <!-- ===================== SKILLS ===================== -->
+    <section id="skills" class="section-skills">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">My Skills</h2>
-                <p class="section-subtitle">Technologies I work with</p>
-            </div>
-            <div class="skills-content">
-                <div class="skills-category">
-                    <h3>Frontend</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
-                            <div class="skill-level" data-level="95"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
-                            <div class="skill-level" data-level="90"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-js-square"></i>
-                            <span>JavaScript</span>
-                            <div class="skill-level" data-level="85"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
-                            <div class="skill-level" data-level="80"></div>
-                        </div>
+            <span class="tag reveal">/ skills</span>
+            <h2 class="heading-lg reveal">Tech I work with</h2>
+
+            <div class="skills-columns">
+                <!-- Backend & Systems -->
+                <div class="skills-col reveal">
+                    <h3 class="col-label">Backend &amp; Systems</h3>
+                    <div class="bar-group">
+                        <div class="skill-row" data-pct="88"><span class="sk-name"><i class="fas fa-code"></i> C / Unix</span><span class="sk-pct">88%</span><div class="sk-track"><div class="sk-fill"></div></div></div>
+                        <div class="skill-row" data-pct="85"><span class="sk-name"><i class="fab fa-python"></i> Python</span><span class="sk-pct">85%</span><div class="sk-track"><div class="sk-fill"></div></div></div>
+                        <div class="skill-row" data-pct="82"><span class="sk-name"><i class="fab fa-node-js"></i> Node / Express</span><span class="sk-pct">82%</span><div class="sk-track"><div class="sk-fill"></div></div></div>
+                        <div class="skill-row" data-pct="75"><span class="sk-name"><i class="fas fa-database"></i> MySQL / PostgreSQL</span><span class="sk-pct">75%</span><div class="sk-track"><div class="sk-fill"></div></div></div>
                     </div>
                 </div>
-                <div class="skills-category">
-                    <h3>Backend</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fab fa-node-js"></i>
-                            <span>Node.js</span>
-                            <div class="skill-level" data-level="80"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
-                            <div class="skill-level" data-level="85"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <span>MySQL</span>
-                            <div class="skill-level" data-level="75"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-server"></i>
-                            <span>Express.js</span>
-                            <div class="skill-level" data-level="80"></div>
-                        </div>
+
+                <!-- Frontend -->
+                <div class="skills-col reveal">
+                    <h3 class="col-label">Frontend</h3>
+                    <div class="bar-group">
+                        <div class="skill-row" data-pct="90"><span class="sk-name"><i class="fab fa-js-square"></i> JavaScript (ES6+)</span><span class="sk-pct">90%</span><div class="sk-track"><div class="sk-fill"></div></div></div>
+                        <div class="skill-row" data-pct="82"><span class="sk-name"><i class="fab fa-react"></i> React.js</span><span class="sk-pct">82%</span><div class="sk-track"><div class="sk-fill"></div></div></div>
+                        <div class="skill-row" data-pct="92"><span class="sk-name"><i class="fab fa-html5"></i> HTML5 / CSS3</span><span class="sk-pct">92%</span><div class="sk-track"><div class="sk-fill"></div></div></div>
+                        <div class="skill-row" data-pct="70"><span class="sk-name"><i class="fas fa-gem"></i> Ruby</span><span class="sk-pct">70%</span><div class="sk-track"><div class="sk-fill"></div></div></div>
                     </div>
                 </div>
-                <div class="skills-category">
-                    <h3>Tools & Others</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git</span>
-                            <div class="skill-level" data-level="90"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                            <div class="skill-level" data-level="90"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-docker"></i>
-                            <span>Docker</span>
-                            <div class="skill-level" data-level="70"></div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-terminal"></i>
-                            <span>Linux</span>
-                            <div class="skill-level" data-level="85"></div>
-                        </div>
+
+                <!-- Tools -->
+                <div class="skills-col reveal">
+                    <h3 class="col-label">Tools &amp; Platform</h3>
+                    <div class="tag-cloud">
+                        <span>Git</span><span>GitHub</span><span>Docker</span>
+                        <span>Kubernetes</span><span>Linux / Unix</span><span>Shell Scripting</span>
+                        <span>Webpack</span><span>Vite</span><span>Hono</span>
+                        <span>Deno.js</span><span>Bootstrap</span><span>jQuery</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects" class="section-projects">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">My Projects</h2>
-                <p class="section-subtitle">Some of my recent work</p>
+            <div class="proj-header">
+                <div>
+                    <span class="tag reveal">/ projects</span>
+                    <h2 class="heading-lg reveal">Selected work</h2>
+                </div>
+                <div class="filter-bar reveal" id="filterBar">
+                    <button class="fbtn active" data-filter="all">All</button>
+                    <button class="fbtn" data-filter="systems">Systems</button>
+                    <button class="fbtn" data-filter="web">Web</button>
+                </div>
+            </div>
+
+            <div class="proj-grid" id="projGrid">
+                <!-- Minishell -->
+                <article class="proj-card featured reveal" data-category="systems">
+                    <div class="proj-img"><img src="images/minishell.png" alt="Minishell" loading="lazy"><div class="proj-img-hover"><a href="https://github.com/khaldi-med" target="_blank" rel="noopener" class="img-btn"><i class="fab fa-github"></i> View Code</a></div></div>
+                    <div class="proj-body">
+                        <div class="proj-meta"><span class="proj-num">01</span><span class="proj-tag-label">Systems</span></div>
+                        <h3>Minishell</h3>
+                        <p>A fully functional Unix shell built from scratch in C, replicating core Bash behaviour. Recursive descent parser, lexical analyzer, pipes, redirections, heredocs, and environment variables.</p>
+                        <div class="proj-stack"><span>C</span><span>Unix</span><span>Lexical Analysis</span><span>Processes</span></div>
+                    </div>
+                </article>
+
+                <!-- URL Share -->
+                <article class="proj-card reveal" data-category="web">
+                    <div class="proj-img"><img src="images/urlshare.png" alt="URL Share App" loading="lazy"><div class="proj-img-hover"><a href="https://github.com/khaldi-med" target="_blank" rel="noopener" class="img-btn"><i class="fab fa-github"></i> View Code</a></div></div>
+                    <div class="proj-body">
+                        <div class="proj-meta"><span class="proj-num">02</span><span class="proj-tag-label">Web</span></div>
+                        <h3>URL Share App</h3>
+                        <p>A social discovery platform for link sharing. Secure RESTful API with Express.js handling auth and content management. MVC architecture.</p>
+                        <div class="proj-stack"><span>Node.js</span><span>Express</span><span>JavaScript</span><span>REST API</span></div>
+                    </div>
+                </article>
+
+                <!-- Fractol -->
+                <article class="proj-card reveal" data-category="systems">
+                    <div class="proj-img"><img src="images/fractol.png" alt="Fractol" loading="lazy"><div class="proj-img-hover"><a href="https://github.com/khaldi-med" target="_blank" rel="noopener" class="img-btn"><i class="fab fa-github"></i> View Code</a></div></div>
+                    <div class="proj-body">
+                        <div class="proj-meta"><span class="proj-num">03</span><span class="proj-tag-label">Systems</span></div>
+                        <h3>Fractol</h3>
+                        <p>Real-time fractal visualization — Mandelbrot and Julia sets. Optimized rendering with infinite zoom and live parameter tweaking.</p>
+                        <div class="proj-stack"><span>C</span><span>Graphics</span><span>Optimization</span></div>
+                    </div>
+                </article>
+
+                <!-- Cub3D -->
+                <article class="proj-card reveal" data-category="systems">
+                    <div class="proj-img"><img src="images/cub3d.png" alt="Cub3D" loading="lazy"><div class="proj-img-hover"><a href="https://github.com/khaldi-med" target="_blank" rel="noopener" class="img-btn"><i class="fab fa-github"></i> View Code</a></div></div>
+                    <div class="proj-body">
+                        <div class="proj-meta"><span class="proj-num">04</span><span class="proj-tag-label">Systems</span></div>
+                        <h3>Cub3D</h3>
+                        <p>3D game engine using raycasting (Wolfenstein 3D style). Collision detection, texture mapping, and perspective rendering in pure C.</p>
+                        <div class="proj-stack"><span>C</span><span>Raycasting</span><span>Game Engine</span></div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="section-contact">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Let's work together</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's talk about your project</h3>
-                    <p>I'm always interested in new opportunities and exciting projects. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h5>Email</h5>
-                                <p>khaldi95@proton.me</p>
-                            </div>
-                        </div>
-                                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/khaldi-med" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/khaldi-med" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://twitter.com/khaldi_med" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <div class="contact-grid">
+                <div class="contact-left reveal">
+                    <span class="tag">/ contact</span>
+                    <h2 class="heading-lg">Let's build<br>something <em>together</em></h2>
+                    <p class="text-body">Have a project in mind, a collaboration, or just want to connect? My inbox is always open.</p>
+
+                    <div class="channels">
+                        <a href="mailto:khaldimohamed82@gmail.com" class="channel">
+                            <div class="ch-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="ch-text"><small>Email</small><span>khaldimohamed82@gmail.com</span></div>
+                            <i class="fas fa-arrow-right ch-arrow"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/medkhaldi" target="_blank" rel="noopener" class="channel">
+                            <div class="ch-icon"><i class="fab fa-linkedin"></i></div>
+                            <div class="ch-text"><small>LinkedIn</small><span>linkedin.com/in/medkhaldi</span></div>
+                            <i class="fas fa-arrow-right ch-arrow"></i>
+                        </a>
+                        <a href="https://github.com/khaldi-med" target="_blank" rel="noopener" class="channel">
+                            <div class="ch-icon"><i class="fab fa-github"></i></div>
+                            <div class="ch-text"><small>GitHub</small><span>github.com/khaldi-med</span></div>
+                            <i class="fas fa-arrow-right ch-arrow"></i>
+                        </a>
                     </div>
                 </div>
-                
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                            <span class="error-message"></span>
+
+                <div class="contact-right reveal">
+                    <form id="contactForm" class="c-form" novalidate>
+                        <div class="form-pair">
+                            <div class="field"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required><span class="ferr"></span></div>
+                            <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="your@email.com" required><span class="ferr"></span></div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                            <span class="error-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                            <span class="error-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
-                            <span class="error-message"></span>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                        <div class="form-status"></div>
+                        <div class="field"><label for="subject">Subject</label><input type="text" id="subject" name="subject" placeholder="What's this about?" required><span class="ferr"></span></div>
+                        <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea><span class="ferr"></span></div>
+                        <button type="submit" class="btn btn-fill submit-btn" id="submitBtn">
+                            <span class="btn-label">Send message</span> <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <div class="form-msg" id="formMsg"></div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 by Mohamed Khaldi</p>
-                <p>Made with ❤️</p>
+            <div class="footer-row">
+                <a href="#home" class="footer-brand"><span class="brand-bracket">{</span>mk<span class="brand-bracket">}</span></a>
+                <p class="footer-copy">&copy; 2025 Mohamed Khaldi — built by hand, with care.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/khaldi-med" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/medkhaldi" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <button class="back-top" id="backTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
     <script src="js/script.js"></script>
 </body>
